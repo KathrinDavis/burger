@@ -9,8 +9,7 @@
     "express-handlebars": "^3.0.0",
     "inquirer": "^3.0.6",
     "method-override": "^2.3.9",
-    "mysql": "^2.13.0",
-    "sequelize-heroku": "^1.0.0"
+    "mysql": "^2.13.0" 
   },
   "devDependencies": {},
   "scripts": {
