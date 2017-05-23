@@ -1,6 +1,7 @@
 // Inside burger.js, import orm.js into burger.js
 var orm = require("../config/orm.js");
-
+var express= require("express");
+var app = express();
 // Also inside burger.js, create the code that will 
 //call the ORM functions using burger specific input for the ORM.
 var burger = {
@@ -10,14 +11,14 @@ var burger = {
 		});
 	},
 
-	insertOne: function(cols, vals, cb){
-		orm.insertOne("burgers", cols, vals, function(res){
+	insertOne: function(vals, cb){
+		orm.insertOne("burgers", "burger_name", vals, function(res){
 			cb(res);
 		});
 	},
 
-	updateOne: function(objColVals, condition, cb){
-		orm.updateOne("burgers", objColVals, condition, function(res){
+	updateOne: function(condition, cb){
+		orm.updateOne('burgers', 'devoured', '1', 'id', condition, function(res){
 			cb(res);
 		});
 	}

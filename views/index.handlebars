@@ -1,39 +1,70 @@
-<h1>Eat the Burgers!</h1>
-
-<h2>Burgers to eat:</h2>
-<ol>
-	{{#each burgers}}
-	{{#unless devoured}}
-		<li>
-			{{burger_name}}
-			<form action = "/{{id}}?_method=PUT" method = "POST">
-				<input type="hidden" name="devoured" value= "true">
-				<button type="submit">EAT ME</button>
+<div classs = "container">
+	
+	<div class = "jumbotron">
+		<div class= "col-lg12-center">
+			<form method = "POST" action="/" class= "button-size text-center">
+			<h1 class = "center-">Burger Feast!!</h1>
+			<img class= "center" id="logo" src="https://vignette3.wikia.nocookie.net/battle-insanity/images/9/93/Burger.png/revision/latest?cb=20160304202530">
+			<h3 class = "center">Add a burger</h3>
+			<textarea type="text" name = "burger_name" data-error = "wrong" data-success= "right" required></textarea>
+			<br>
+			<button class = "waves-effect btn" type="submit">Put on the menu!</button>
 			</form>
-		</li>
-	{{/unless}}
-	{{/each}}
-</ol>
-
-<h2>Burgers you ate!</h2>
-<ol>
-	{{#each burgers}}
-	{{#if devoured}}
-		<li>
-			{{burger_name}}
-		</li>
-	{{/if}}
-	{{/each}}
-</ol>
-
-<h2>Add a Burger</h2>
-<form class= "create-update-form" action="/" method= "POST">
-
-	<div class = "form-group">
-		<label for= "nb">New Burger Name:</label>
-		<input type="text" id= "nb" name="name">
+		</div>
 	</div>
 
-	<button type= "submit">Add Burger</button>
-	<p>Enter a burger you want to eat, then click the "Add Burger" button.</p>
-</form>
+	<div class= "row">
+		<div class= "col-md-5">
+			<ul class= "collection with-header">
+				<li class ="collection-header center-align">
+					<h2>Burgers to eat:</h2>
+					<ol>
+					{{#each burgers}}
+					{{#unless devoured}}
+					<li>
+						{{burger_name}}
+						<form action = "/{{id}}?_method=PUT" method = "POST">
+							<input type="hidden" name="id" value= "{{devoured}}">
+							<button type="submit">EAT ME</button>
+							<br>
+						</form>
+					</li>
+					{{/unless}}
+					{{/each}}
+					</ol>
+				</li>
+			</ul>
+		</div>
+
+		
+		<div class= "col-md-5 col-md-offset-1">
+			<ul class= "collection with-header">
+				<li class = "collection-header center-align">
+					<h2>Burgers you devoured:</h2>
+					<ol>
+					{{#each burgers}}
+					{{#if devoured}}
+					<li>
+						{{burger_name}}
+					</li>
+					{{/if}}
+					{{/each}}
+					</ol>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- <h2>Add a Burger</h2>
+	<form class= "create-update-form" action="/" method= "POST">
+
+		<div class = "form-group">
+			<label for= "nb">New Burger Name:</label>
+			<input type="text" id= "nb" name="name">
+		</div>
+
+		<button type= "submit">Add Burger</button>
+		<p>Enter a burger you want to eat, then click the "Add Burger" button.</p>
+	</form> -->
+	
+</div>
